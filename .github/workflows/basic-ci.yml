@@ -26,8 +26,7 @@ jobs:
             return { randomMemberLogin: randomMember.login };
 
       - name: Assign Random Reviewer
-        uses: pullreminders/assignee-to-reviewer-action@v1.0.7
+        uses: hkusu/review-assign-action@v1
         with:
+          assignees: ${{ github.actor }}
           reviewers: ${{ steps.fetch_team_members.outputs.randomMemberLogin }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
